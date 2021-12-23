@@ -1,23 +1,21 @@
-<div style="text-align:center">
-  <h1>Angular autocomplete</h1>
-</div>
-
 <div class="ng-autocomplete">
   <ng-autocomplete
-    [data]="countries"
-    [searchKeyword]="email"
-    placeholder="Enter the Country Name"
+    [data]="auto"
+    [searchKeyword]="keyword"
     (selected)="selectEvent($event)"
     (inputChanged)="onChangeSearch($event)"
     (inputFocused)="onFocused($event)"
-    historyIdentifier="countries"
     [itemTemplate]="itemTemplate"
     [notFoundTemplate]="notFoundTemplate"
+    (keyup)="Data()"
   >
   </ng-autocomplete>
 
   <ng-template #itemTemplate let-item>
-    <a [innerHTML]="item.name"></a>
+    <a href="javascript:void(0)">
+      <span [innerHTML]="item.name"></span>
+      <!-- <span [innerHTML]="item.address"></span> -->
+    </a>
   </ng-template>
 
   <ng-template #notFoundTemplate let-notFound>
